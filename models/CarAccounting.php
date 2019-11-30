@@ -26,9 +26,10 @@ class CarAccounting extends \yii\db\ActiveRecord
             [['brand', 'model'], 'string', 'max' => 80],
             ['number', 'string', 'max' => 15],
             [['payment'],'boolean'],
-            [['brand','model','comment'], 'match', 'pattern' => '|[0-9A-Za-zа-яА-Я\s]{1,}?$|', 'message' =>'problem with entering information'],
-            ['number', 'match','pattern' => '|[0-9A-Za-zа-яА-Я]{1,}?$|', 'message' => 'not correct car number'],
+            [['brand','model','comment'], 'match', 'pattern' => '/^[A-ZА-Яa-zа-я0-9 ]{1,}$/', 'message' =>'problem with entering information'],
+            ['number', 'match','pattern' => '/^[А-Яa-zа-я0-9]{1,15}$/', 'message' => 'not correct car number'],
         ];
+
     }
 
     /**
