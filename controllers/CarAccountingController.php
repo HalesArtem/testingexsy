@@ -18,7 +18,7 @@ class CarAccountingController extends \yii\web\Controller
             $forms->save();
         }
         $findAll = CarAccounting::find()->all();
-        return $this->render('original', [
+        return $this->render('index', [
             'forms' => $forms,
             'findAll' => $findAll,
         ]);

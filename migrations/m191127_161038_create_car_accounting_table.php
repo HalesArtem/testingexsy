@@ -14,10 +14,10 @@ class m191127_161038_create_car_accounting_table extends Migration
     {
         $this->createTable('car_accounting', [
             'id' => $this->primaryKey(),
-            'brand' => $this->string(),
-            'model' => $this->string(),
+            'brand' => $this->string(80),
+            'model' => $this->string(80),
             'number' => $this->string(15),
-            'color' => $this->string(),
+            'color' => $this->string(40),
             'payment' => $this->boolean(),
             'comment' => $this->text(),
         ]);
