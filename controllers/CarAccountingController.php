@@ -6,21 +6,21 @@ use app\models\CarAccounting;
 use yii\web\Controller;
 
 
-class CarAccountingController extends \yii\web\Controller
+class CarAccountingController extends Controller
 {
     public function actionIndex()
     {
-        $forms = new CarAccounting();
+        $form = new CarAccounting();
 
-        if ($forms->load(Yii::$app->request->post()) && $forms->validate()) {
-
-            $forms->insert('CarAccounting');
-            $forms->save();
+        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+            $form->insert('CarAccounting');
+            $form->save();
         }
-        $findAll = CarAccounting::find()->all();
+
+        $cars = CarAccounting::find()->all();
         return $this->render('index', [
-            'forms' => $forms,
-            'findAll' => $findAll,
+            'form' => $form,
+            'cars' => $cars,
         ]);
     }
 }

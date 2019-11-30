@@ -1,7 +1,7 @@
 <?php
 /**
- * @var \app\models\CarAccounting $forms
- * @var \app\models\CarAccounting $findAll
+ * @var \app\models\CarAccounting $form
+ * @var \app\models\CarAccounting $cars
  */
 
 use yii\helpers\Html;
@@ -10,27 +10,36 @@ use yii\widgets\ActiveForm;
 
 ?>
 
-<?php $form = ActiveForm::begin(); ?>
+<?php $forms = ActiveForm::begin(); ?>
 
-<?= $form->field($forms, 'brand') ?>
+<?= $forms->field($form, 'brand') ?>
 
-<?= $form->field($forms, 'model') ?>
+<?= $forms->field($form, 'model') ?>
 
-<?= $form->field($forms, 'number') ?>
+<?= $forms->field($form, 'number') ?>
 
-<?= $form->field($forms, 'color')->dropDownList([
-    '' => 'не указано',
-    'красный' => 'красный',
-    'черный' => 'черный',
-    'белый' => 'белый',
-]) ?>
+<?= $forms->field($form, 'color')->dropDownList([
+    '' => 'no entry',
+    'red'       => 'red',
+    'black'     => 'black',
+    'white'     => 'white',
+    'Yellow'    => 'Yellow',
+    'Green'     => 'Green',
+    'Blue'      => 'Blue',
+    'Brown'     => 'Brown',
+    'Red'       => 'Red',
+    'Orange'    => 'Orange',
+    'Pink'      => 'Pink',
+    'Gray'      => 'Gray',
+    'Black'     => 'Black',
+    ]) ?>
 
-<?= $form->field($forms, 'payment')->checkbox(); ?>
+<?= $forms->field($form, 'payment')->checkbox(); ?>
 
-<?= $form->field($forms, 'comment')->textarea(); ?>
+<?= $forms->field($form, 'comment')->textarea(); ?>
 
 
-<?= Html::submitButton('Отправить', [
+<?= Html::submitButton('Submit', [
     'class' => 'btn btn-primary',
     'id' => 'btn']) ?>
 
@@ -49,18 +58,18 @@ use yii\widgets\ActiveForm;
             <th scope="col">comment</th>
         </tr>
         </thead>
-        <?php foreach ($findAll
+        <?php foreach ($cars
 
-        as $find): ?>
+        as $car): ?>
         <tbody>
         <tr>
-            <th scope="row"><?= $find->id; ?></th>
-            <td><?= $find->brand; ?></td>
-            <td><?= $find->model; ?></td>
-            <td><?= $find->number; ?></td>
-            <td><?= $find->color; ?></td>
-            <td><?= $find->payment; ?></td>
-            <td><?= $find->comment; ?></td>
+            <th scope="row"><?= $car->id; ?></th>
+            <td><?= $car->brand; ?></td>
+            <td><?= $car->model; ?></td>
+            <td><?= $car->number; ?></td>
+            <td><?= $car->color; ?></td>
+            <td><?= $car->payment; ?></td>
+            <td><?= $car->comment; ?></td>
         </tr>
         <?php endforeach; ?>
 </div>
