@@ -13,6 +13,9 @@ class CarAccountingController extends Controller
         $form = new CarAccounting();
 
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+
+            $this->getView()->registerJs("alert('Well done');");
+
             $form->insert('CarAccounting');
             $form->save();
         }
